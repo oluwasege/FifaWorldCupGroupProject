@@ -31,6 +31,26 @@ namespace FifaWorldCupGroupProject
             {
                 FileStream fs = File.Create(pathString);
                 fs.Close();
+                try
+                {
+                    using StreamWriter sw = new StreamWriter(pathString);
+                    sw.WriteLine("\t\t\t\t\t\tWorld Cup History\n\nThe FIFA World Cup is the most prestigious soccer competition in the world. Played every four years, the World Cup hosts the top 32 national teams in a month long tournament. The host country is selected by FIFA's Council. The full list of World Cup Winners is listed below. For a list of past World Cup individual player awards visit the World Cup Awards page.");
+                    sw.WriteLine("\nYEAR\t\tHOST\t\tCHAMPION\t\tRUNNER UP\t\tTEAMS\t\tMATCHES PLAYED");
+                    sw.WriteLine("\n1930\t\tUraguay\t\tArgentina\t\tUnited States\t\t13\t\t16");
+                    sw.WriteLine("\n1934\t\tItaly\t\tItaly\t\t\tCzechoslovakia\t\t16\t\t17");
+                    sw.WriteLine("\n1938\t\tFrance\t\tItaly\t\t\tHungary\t\t\t15\t\t18");
+                    sw.WriteLine("\n1950\t\tBrazil\t\tUraguay\t\t\tBrazil\t\t\t13\t\t22");
+
+
+                    sw.Close();
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
             }
 
             //else
@@ -39,30 +59,11 @@ namespace FifaWorldCupGroupProject
             //}
             //Console.WriteLine(pathString);
 
-            try
-            {
-                using StreamWriter sw = new StreamWriter(pathString);
-                sw.WriteLine("\t\t\t\t\t\tWorld Cup History\n\nThe FIFA World Cup is the most prestigious soccer competition in the world. Played every four years, the World Cup hosts the top 32 national teams in a month long tournament. The host country is selected by FIFA's Council. The full list of World Cup Winners is listed below. For a list of past World Cup individual player awards visit the World Cup Awards page.");
-                sw.WriteLine("\nYEAR\t\tHOST\t\tCHAMPION\t\tRUNNER UP\t\tTEAMS\t\tMATCHES PLAYED");
-                sw.WriteLine("\n1930\t\tUraguay\t\tArgentina\t\tUnited States\t\t13\t\t16");
-                sw.WriteLine("\n1934\t\tItaly\t\tItaly\t\t\tCzechoslovakia\t\t16\t\t17");
-                sw.WriteLine("\n1938\t\tFrance\t\tItaly\t\t\tHungary\t\t\t15\t\t18");
-                sw.WriteLine("\n1950\t\tBrazil\t\tUraguay\t\t\tBrazil\t\t\t13\t\t22");
-
-
-                sw.Close();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
 
 
 
-            
-        
+
+
         }
         public void ViewHistory()
         {
@@ -75,10 +76,10 @@ namespace FifaWorldCupGroupProject
                 Console.WriteLine(sr.ReadToEnd());
                 sr.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
         }
         public void AddToHistory()
@@ -145,10 +146,10 @@ namespace FifaWorldCupGroupProject
                 sw.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
             try
             {
@@ -157,10 +158,9 @@ namespace FifaWorldCupGroupProject
                 Console.WriteLine(sr.ReadToEnd());
                 sr.Close();
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (Exception ex)
+            { 
+                Console.WriteLine(ex.Message);
             }
             
         }
