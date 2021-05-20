@@ -8,10 +8,7 @@ namespace FifaWorldCupGroupProject
     {
         //Represents the current stage the user is in.
         public int CurrentStage { get; set; }
-        public static void PromptUser(string prompt)
-        {
-            Console.WriteLine(prompt);
-        }
+        
        
     }
 }

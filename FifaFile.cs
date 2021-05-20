@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using static System.Environment;
+using static System.IO.Path;
 
 namespace FifaWorldCupGroupProject
 {
@@ -10,7 +12,8 @@ namespace FifaWorldCupGroupProject
         
         public void CreateFile()
         {
-            string folderName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Fifa");
+            
+            string folderName =Combine(GetFolderPath(SpecialFolder.MyDocuments), "Fifa");
             //Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName));
             if (!Directory.Exists(folderName))
             {
@@ -34,12 +37,12 @@ namespace FifaWorldCupGroupProject
             //{
             //    Console.WriteLine("File Already Exists");
             //}
-            Console.WriteLine(pathString);
+            //Console.WriteLine(pathString);
 
             try
             {
                 using StreamWriter sw = new StreamWriter(pathString);
-                sw.WriteLine("World Cup History\n\nThe FIFA World Cup is the most prestigious soccer competition in the world. Played every four years, the World Cup hosts the top 32 national teams in a month long tournament. The host country is selected by FIFA's Council. The full list of World Cup Winners is listed below. For a list of past World Cup individual player awards visit the World Cup Awards page.");
+                sw.WriteLine("\t\t\t\t\t\tWorld Cup History\n\nThe FIFA World Cup is the most prestigious soccer competition in the world. Played every four years, the World Cup hosts the top 32 national teams in a month long tournament. The host country is selected by FIFA's Council. The full list of World Cup Winners is listed below. For a list of past World Cup individual player awards visit the World Cup Awards page.");
                 sw.WriteLine("\nYEAR\t\tHOST\t\tCHAMPION\t\tRUNNER UP\t\tTEAMS\t\tMATCHES PLAYED");
                 sw.WriteLine("\n1930\t\tUraguay\t\tArgentina\t\tUnited States\t\t13\t\t16");
                 sw.WriteLine("\n1934\t\tItaly\t\tItaly\t\t\tCzechoslovakia\t\t16\t\t17");
