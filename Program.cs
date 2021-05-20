@@ -49,7 +49,7 @@ namespace FifaWorldCupGroupProject
                 {
                     fifa.ViewHistory();
                     Console.WriteLine("Press b to go back, a to add, and e to exit");
-                    string options = Console.ReadLine();
+                    string options = Console.ReadLine().ToLower();
                     switch(options)
                     {
                         case "b":
@@ -71,14 +71,14 @@ namespace FifaWorldCupGroupProject
                 while(menu.CurrentStage==3)
                 {
                     
-                    fifa.AddHistory();
+                    fifa.AddToHistory();
                     Console.WriteLine("Press b to go back, a to add, and e to exit");
-                    string options = Console.ReadLine();
-                    while(options!="b"&options!="a"&options!="e")
+                    string options = Console.ReadLine().ToLower();
+                    while (options != "b" & options != "a" & options != "e")
                     {
 
                         Console.WriteLine("Invalid Input\nPress b to go back, a to add, and e to exit");
-                        options = Console.ReadLine();
+                        options = Console.ReadLine().ToLower();
                     }
                     switch (options)
                     {

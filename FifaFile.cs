@@ -26,7 +26,7 @@ namespace FifaWorldCupGroupProject
             //}
 
             string fileName = "WorldcupWinners.txt";
-            string pathString = Path.Combine(folderName, fileName);
+            string pathString = Combine(folderName, fileName);
             if (!File.Exists(pathString))
             {
                 FileStream fs = File.Create(pathString);
@@ -66,9 +66,9 @@ namespace FifaWorldCupGroupProject
         }
         public void ViewHistory()
         {
-            string folderName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Fifa");
+            string folderName = Combine(GetFolderPath(SpecialFolder.MyDocuments), "Fifa");
             string fileName = "WorldcupWinners.txt";
-            string pathString = Path.Combine(folderName, fileName);
+            string pathString = Combine(folderName, fileName);
             try
             {
                 using StreamReader sr = new StreamReader(pathString);
@@ -81,17 +81,14 @@ namespace FifaWorldCupGroupProject
                 throw;
             }
         }
-        public void AddHistory()
+        public void AddToHistory()
         {
 
-            string folderName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Fifa");
+            string folderName = Combine(GetFolderPath(SpecialFolder.MyDocuments), "Fifa");
             string fileName = "WorldcupWinners.txt";
-            string pathString = Path.Combine(folderName, fileName);
+            string pathString = Combine(folderName, fileName);
             try
             {
-                
-
-
                 Console.Write("Enter the year : ");
                 string year = Console.ReadLine();
                 while(string.IsNullOrEmpty(year))
@@ -126,7 +123,8 @@ namespace FifaWorldCupGroupProject
                 }
                 Console.Write("Enter the Number of Teams : ");
                 string teams = Console.ReadLine();
-                while (!int.TryParse(teams, out int numberOfTeams))
+                int numberOfTeams;
+                while (!int.TryParse(teams, out numberOfTeams))
                 {
                     Console.WriteLine("Invalid Input");
                     Console.Write("Enter the Number of Teams : ");
@@ -134,7 +132,8 @@ namespace FifaWorldCupGroupProject
                 }
                 Console.Write("Enter the Total matches played : ");
                 string matches = Console.ReadLine();
-                while (!int.TryParse(matches, out int totalMatchesPlayed))
+                int totalMatchesPlayed;
+                while (!int.TryParse(matches, out totalMatchesPlayed))
                 {
                     Console.WriteLine("Invalid Input");
                     Console.Write("Enter the Total matches played : ");
@@ -142,7 +141,7 @@ namespace FifaWorldCupGroupProject
                 }
                 using StreamWriter sw = File.AppendText(pathString);
                 sw.WriteLine();
-                sw.WriteLine($"{year}\t\t{host}\t\t{champion}\t\t\t{runnerUp}\t\t\t{teams}\t\t{matches} ");
+                sw.WriteLine($"{year}\t\t{host}\t\t{champion}\t\t\t{runnerUp}\t\t\t{numberOfTeams}\t\t{totalMatchesPlayed} ");
                 sw.Close();
 
             }
@@ -153,6 +152,7 @@ namespace FifaWorldCupGroupProject
             }
             try
             {
+                Console.Clear();
                 using StreamReader sr = new StreamReader(pathString);
                 Console.WriteLine(sr.ReadToEnd());
                 sr.Close();
