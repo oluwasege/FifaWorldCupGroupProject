@@ -50,23 +50,7 @@ namespace FifaWorldCupGroupProject
                     fifa.ViewHistory();
                     Console.WriteLine("Press b to go back, a to add, and e to exit");
                     string options = Console.ReadLine().ToLower();
-                    switch(options)
-                    {
-                        case "b":
-                            menu.CurrentStage = 1;
-                            break;
-                        case "a":
-                            menu.CurrentStage = 3;
-                            break;
-                        case "e":
-                            Environment.Exit(0);
-                            break;
-                        default:
-                            
-                            break;
-
-                    }
-                    Console.Clear();
+                    menu.CheckingOption(options);
                 }
                 while(menu.CurrentStage==3)
                 {
@@ -80,22 +64,7 @@ namespace FifaWorldCupGroupProject
                         Console.WriteLine("Invalid Input\nPress b to go back, a to add, and e to exit");
                         options = Console.ReadLine().ToLower();
                     }
-                    switch (options)
-                    {
-                        case "b":
-                            menu.CurrentStage = 1;
-                            break;
-                        case "a":
-                            menu.CurrentStage = 3;
-                            break;
-                        case "e":
-                            Environment.Exit(0);
-                            break;
-                        default:
-                            break;
-
-                    }
-                    Console.Clear();
+                    menu.CheckingOption(options);
 
 
                 }
